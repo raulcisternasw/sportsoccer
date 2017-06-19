@@ -1,35 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="jumbotron">
+    <p id="notice"><%= notice %></p>
 
-<h1>Soccerfields</h1>
+    <h1>Arriendo de canchas</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Code</th>
-      <th>State</th>
-      <th>Date</th>
-      <th>Time</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <%= link_to 'Registrar cancha', new_soccerfield_path, class: 'btn btn-default' %>
+    <%= link_to 'Volver atrás', root_path, class: 'btn btn-default' %>
+    <br><br>
 
-  <tbody>
-    <% @soccerfields.each do |soccerfield| %>
-      <tr>
-        <td><%= soccerfield.code %></td>
-        <td><%= soccerfield.state %></td>
-        <td><%= soccerfield.date %></td>
-        <td><%= soccerfield.time %></td>
-        <td><%= soccerfield.user %></td>
-        <td><%= link_to 'Show', soccerfield %></td>
-        <td><%= link_to 'Edit', edit_soccerfield_path(soccerfield) %></td>
-        <td><%= link_to 'Destroy', soccerfield, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class = "center-table table-responsive">
+      <table class="table table-striped table-bordered table-center" >
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Estado</th>
+            <th>Fecha</th>
+            <th>Horario</th>
+            <th>Código cancha</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-<br>
-
-<%= link_to 'New Soccerfield', new_soccerfield_path %>
+        <tbody>
+          <% @soccerfields.each do |soccerfield| %>
+            <tr>
+              <td><%= soccerfield.user.name %></td>
+              <td><%= soccerfield.state %></td>
+              <td><%= soccerfield.date.to_time.strftime("%d/%m/%Y") %></td>
+              <td><%= soccerfield.time.to_time.strftime("%H:%M") %></td>
+              <td><%= soccerfield.code %></td>
+              <td><%= link_to 'Ver', soccerfield %></td>
+              <td><%= link_to 'Editar', edit_soccerfield_path(soccerfield) %></td>
+              <td><%= link_to 'Eliminar', soccerfield, method: :delete, data: { confirm: '¿Estás seguro de eliminar esta reserva?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

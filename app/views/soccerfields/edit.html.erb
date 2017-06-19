@@ -1,6 +1,10 @@
-<h1>Editing Soccerfield</h1>
+<div class="container-fluid">
+  <div class="jumbotron">
+    <h1>Actualizar registro de cancha</h1>
 
-<%= render 'form', soccerfield: @soccerfield %>
+    <%= link_to 'Ver', @soccerfield, class: 'btn btn-default' %>
+    <%= link_to 'Volver atrás', soccerfields_path, class: 'btn btn-default' %>
 
-<%= link_to 'Show', @soccerfield %> |
-<%= link_to 'Back', soccerfields_path %>
+    <%= render 'form', soccerfield: @soccerfield %>
+  </div>
+</div>
