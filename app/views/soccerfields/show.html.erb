@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @soccerfield.code %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @soccerfield.state %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @soccerfield.date %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @soccerfield.time %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @soccerfield.user %>
+</p>
+
+<%= link_to 'Edit', edit_soccerfield_path(@soccerfield) %> |
+<%= link_to 'Back', soccerfields_path %>

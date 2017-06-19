@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Soccerfields</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>State</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @soccerfields.each do |soccerfield| %>
+      <tr>
+        <td><%= soccerfield.code %></td>
+        <td><%= soccerfield.state %></td>
+        <td><%= soccerfield.date %></td>
+        <td><%= soccerfield.time %></td>
+        <td><%= soccerfield.user %></td>
+        <td><%= link_to 'Show', soccerfield %></td>
+        <td><%= link_to 'Edit', edit_soccerfield_path(soccerfield) %></td>
+        <td><%= link_to 'Destroy', soccerfield, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Soccerfield', new_soccerfield_path %>
