@@ -1,5 +1,9 @@
-<h1>New Soccerfield</h1>
+<div class="container-fluid">
+  <div class="jumbotron">
+    <h1>Registro cancha</h1>
 
-<%= render 'form', soccerfield: @soccerfield %>
+    <%= link_to 'Volver atrás', soccerfields_path, class: 'btn btn-default' %>
 
-<%= link_to 'Back', soccerfields_path %>
+    <%= render 'form', soccerfield: @soccerfield %>
+  </div>
+</div>

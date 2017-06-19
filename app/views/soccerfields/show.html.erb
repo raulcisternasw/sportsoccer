@@ -1,29 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="jumbotron">
+    <p id="notice">
+      <strong><%= notice %></strong>
+    </p>
 
-<p>
-  <strong>Code:</strong>
-  <%= @soccerfield.code %>
-</p>
+    <h1>Registro de arriendo</h1>
 
-<p>
-  <strong>State:</strong>
-  <%= @soccerfield.state %>
-</p>
+    <%= link_to 'Editar', edit_soccerfield_path(@soccerfield), class: 'btn btn-default' %>
+    <%= link_to 'Volver atrás', soccerfields_path, class: 'btn btn-default' %>
+    <br><br>
 
-<p>
-  <strong>Date:</strong>
-  <%= @soccerfield.date %>
-</p>
+    <p>
+      <strong>Cliente:</strong>
+      <%= @soccerfield.user.name %>
+    </p>
 
-<p>
-  <strong>Time:</strong>
-  <%= @soccerfield.time %>
-</p>
+    <p>
+      <strong>Estado:</strong>
+      <%= @soccerfield.state %>
+    </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @soccerfield.user %>
-</p>
+    <p>
+      <strong>Fecha:</strong>
+      <%= @soccerfield.date.to_time.strftime("%d/%m/%Y") %>
+    </p>
 
-<%= link_to 'Edit', edit_soccerfield_path(@soccerfield) %> |
-<%= link_to 'Back', soccerfields_path %>
+    <p>
+      <strong>Horario:</strong>
+      <%= @soccerfield.time.to_time.strftime("%H:%M") %>
+    </p>
+
+    <p>
+      <strong>Código cancha:</strong>
+      <%= @soccerfield.code %>
+    </p>    
+  </div>
+</div>

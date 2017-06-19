@@ -1,4 +1,4 @@
-<%= form_with(model: soccerfield, local: true) do |form| %>
+<%= form_with(model: soccerfield, local: true, html: {class: 'form-horizontal'}) do |form| %>
   <% if soccerfield.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(soccerfield.errors.count, "error") %> prohibited this soccerfield from being saved:</h2>
@@ -11,32 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :code %>
-    <%= form.text_field :code, id: :soccerfield_code %>
+  <div class="form-group">
+    <%= form.label :user_id, 'Cliente', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= form.select :user_id, @user.collect {|u| [ u.name, u.id ] }, { include_blank: 'Seleccione un cliente' }, {id: :soccerfield_user_id, required: true, class: 'form-control'} %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :state %>
-    <%= form.number_field :state, id: :soccerfield_state %>
+  <div class="form-group">
+    <%= form.label :date, 'Fecha', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= form.date_field :date, id: :soccerfield_date, required: true, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date, id: :soccerfield_date %>
+  <div class="form-group">
+    <%= form.label :time, 'Horario', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= form.time_field :time, id: :soccerfield_time, required: true, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :time %>
-    <%= form.time_select :time, id: :soccerfield_time %>
+  <div class="form-group">
+    <%= form.label :code, 'Código cancha', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= form.select :code, @code, {include_blank: 'Seleccione una cancha'}, {id: :soccerfield_code, selected: @set, required: true, class: 'form-control'} %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :soccerfield_user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+      <%= form.submit 'Registrar', class: 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
