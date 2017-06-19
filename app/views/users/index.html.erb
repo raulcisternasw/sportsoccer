@@ -1,33 +1,39 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="jumbotron">
+    <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
+    <h1>Clientes</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Telephone</th>
-      <th>Cellphone</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <%= link_to 'Registrar cliente', new_user_path, class: 'btn btn-default' %>
+    <%= link_to 'Volver atrás', root_path, class: 'btn btn-default' %>
+    <br><br>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.telephone %></td>
-        <td><%= user.cellphone %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class = "center-table table-responsive">
+      <table class="table table-striped table-bordered table-center" >
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Correo electrónico</th>
+            <th>Teléfono celular</th>
+            <th>Teléfono fijo</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-<br>
-
-<%= link_to 'New User', new_user_path %>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.name %></td>
+              <td><%= user.email %></td>
+              <td><%= user.cellphone %></td>
+              <td><%= user.telephone %></td>
+              <td><%= link_to 'Ver', user %></td>
+              <td><%= link_to 'Editar', edit_user_path(user) %></td>
+              <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: '¿Estás seguro de eliminar este cliente?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

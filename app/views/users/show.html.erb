@@ -1,24 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="jumbotron">
+    <p id="notice">
+      <strong><%= notice %></strong>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+    <h1>Registro de cliente</h1>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+    <%= link_to 'Editar', edit_user_path(@user), class: 'btn btn-default' %>
+    <%= link_to 'Volver atrás', users_path, class: 'btn btn-default' %>
+    <br><br>
 
-<p>
-  <strong>Telephone:</strong>
-  <%= @user.telephone %>
-</p>
+    <p>
+      <strong>Nombre:</strong>
+      <%= @user.name %>
+    </p>
 
-<p>
-  <strong>Cellphone:</strong>
-  <%= @user.cellphone %>
-</p>
+    <p>
+      <strong>Correo electrónico:</strong>
+      <%= @user.email %>
+    </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+    <p>
+      <strong>Teléfono celular:</strong>
+      <%= @user.cellphone %>
+    </p>
+
+    <p>
+      <strong>Teléfono fijo:</strong>
+      <%= @user.telephone %>
+    </p>
+  </div>
+</div>
