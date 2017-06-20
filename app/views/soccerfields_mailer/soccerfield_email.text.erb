@@ -1,0 +1,11 @@
+Registro de arriendo
+
+Cliente: <%= @soccerfield.user.name %>
+
+Estado: <%= @soccerfield.state %>
+
+Fecha: <%= @soccerfield.date.to_time.strftime("%d/%m/%Y") %>
+
+Horario: <%= @soccerfield.time.to_time.strftime("%H:%M") %>
+
+Código cancha: <%= @soccerfield.code %>
