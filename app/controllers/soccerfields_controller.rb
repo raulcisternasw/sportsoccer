@@ -5,7 +5,7 @@ class SoccerfieldsController < ApplicationController
 
   def set_code
     @code = ['CF001', 'CF002', 'CF003', 'CF004', 'CF005', 'CF006', 'CF007', 'CF008', 'CF009', 'CF010']
-  end  
+  end
 
   # GET /soccerfields
   # GET /soccerfields.json
@@ -20,7 +20,7 @@ class SoccerfieldsController < ApplicationController
 
   # GET /soccerfields/new
   def new
-    @soccerfield = Soccerfield.new    
+    @soccerfield = Soccerfield.new
   end
 
   # GET /soccerfields/1/edit
@@ -35,6 +35,8 @@ class SoccerfieldsController < ApplicationController
 
     respond_to do |format|
       if @soccerfield.save
+        # Tell the SoccerfieldsMailer to send a confirmation email after save
+        SoccerfieldsMailer.soccerfield_email(@soccerfield).deliver_later
         format.html { redirect_to @soccerfield, notice: 'Reserva creada con éxito.' }
         format.json { render :show, status: :created, location: @soccerfield }
       else
@@ -49,6 +51,8 @@ class SoccerfieldsController < ApplicationController
   def update
     respond_to do |format|
       if @soccerfield.update(soccerfield_params)
+        # Tell the SoccerfieldsMailer to send a confirmation email after update
+        SoccerfieldsMailer.soccerfield_email(@soccerfield).deliver_later
         format.html { redirect_to @soccerfield, notice: 'Reserva actualizada con éxito.' }
         format.json { render :show, status: :ok, location: @soccerfield }
       else
@@ -76,7 +80,7 @@ class SoccerfieldsController < ApplicationController
 
     def set_user
       @user = User.all
-    end    
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def soccerfield_params

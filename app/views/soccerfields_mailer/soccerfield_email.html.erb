@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+
+  <body>
+    <h1>Registro de arriendo</h1>
+
+    <p>
+      <strong>Cliente:</strong>
+      <%= @soccerfield.user.name %>
+    </p>
+
+    <p>
+      <strong>Estado:</strong>
+      <%= @soccerfield.state %>
+    </p>
+
+    <p>
+      <strong>Fecha:</strong>
+      <%= @soccerfield.date.to_time.strftime("%d/%m/%Y") %>
+    </p>
+
+    <p>
+      <strong>Horario:</strong>
+      <%= @soccerfield.time.to_time.strftime("%H:%M") %>
+    </p>
+
+    <p>
+      <strong>Código cancha:</strong>
+      <%= @soccerfield.code %>
+    </p> 
+  </body>
+</html>
