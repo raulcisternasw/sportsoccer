@@ -1,7 +1,8 @@
 <%= form_with(model: soccerfield, local: true, html: {class: 'form-horizontal'}) do |form| %>
   <% if soccerfield.errors.any? %>
+    <br>
     <div id="error_explanation">
-      <h2><%= pluralize(soccerfield.errors.count, "error") %> prohibited this soccerfield from being saved:</h2>
+      <h2><%= pluralize(soccerfield.errors.count, "Error,") %> Prohibido registrar este arriendo de cancha:</h2>
 
       <ul>
       <% soccerfield.errors.full_messages.each do |message| %>
@@ -14,7 +15,7 @@
   <div class="form-group">
     <%= form.label :user_id, 'Cliente', class: 'col-sm-2 control-label' %>
     <div class="col-sm-6">
-      <%= form.select :user_id, @user.collect {|u| [ u.name, u.id ] }, { include_blank: 'Seleccione un cliente' }, {id: :soccerfield_user_id, required: true, class: 'form-control'} %>
+      <%= form.select :user_id, User.all.collect {|u| [ u.name, u.id ] }, { include_blank: 'Seleccione un cliente' }, {id: :soccerfield_user_id, required: true, class: 'form-control'} %>
     </div>
   </div>
 
@@ -28,13 +29,14 @@
   <div class="form-group">
     <%= form.label :time, 'Horario', class: 'col-sm-2 control-label' %>
     <div class="col-sm-6">
-      <%= form.time_field :time, id: :soccerfield_time, required: true, class: 'form-control' %>
+      <%= form.time_field :time, id: :soccerfield_time, min: "09:00:00", max: "23:00:00", required: true, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
     <%= form.label :code, 'Código cancha', class: 'col-sm-2 control-label' %>
     <div class="col-sm-6">
+      <% @code = ['CF001', 'CF002', 'CF003', 'CF004', 'CF005', 'CF006', 'CF007', 'CF008', 'CF009', 'CF010'] %>
       <%= form.select :code, @code, {include_blank: 'Seleccione una cancha'}, {id: :soccerfield_code, selected: @set, required: true, class: 'form-control'} %>
     </div>
   </div>
