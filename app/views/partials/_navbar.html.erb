@@ -1,0 +1,17 @@
+<div class="navbar navbar-inverse" role="navigation" style="background: #203567">
+  <div class="navbar-header">
+    <%= link_to image_tag('logo/sportsoccer-logo.png', size: "100x100", style: 'background: #203567'), welcome_index_path %>
+    <button type="button" class="navbar-toggle" style="margin:30px" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>    
+  </div>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbarcolortext">
+      <li><%= link_to ('<strong>Inicio</strong>').html_safe, welcome_index_path, style: 'margin:20px; font-size:15px' %></li>
+      <li><%= link_to ('<strong>Registrar clientes</strong>').html_safe, users_path, style: 'margin:20px; font-size:15px' %></li>
+      <li><%= link_to ('<strong>Registrar canchas</strong>').html_safe, soccerfields_path, style: 'margin:20px; font-size:15px' %></li>
+    </ul>
+  </div>
+</div>
