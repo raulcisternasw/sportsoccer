@@ -3,6 +3,6 @@ class SoccerfieldsMailer < ApplicationMailer
 
   def soccerfield_email(soccerfield)
     @soccerfield = soccerfield
-    mail(to: @soccerfield.user.email, subject: 'Cancha arrendada')
+    mail(to: @soccerfield.user.email, subject: 'Arriendo cancha')
   end
 end
