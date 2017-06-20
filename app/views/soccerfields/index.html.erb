@@ -27,7 +27,7 @@
           <% @soccerfields.each do |soccerfield| %>
             <tr>
               <td><%= soccerfield.user.name %></td>
-              <td><%= soccerfield.state %></td>
+              <td><%= soccerfield.state.titleize %></td>
               <td><%= soccerfield.date.to_time.strftime("%d/%m/%Y") %></td>
               <td><%= soccerfield.time.to_time.strftime("%H:%M") %></td>
               <td><%= soccerfield.code %></td>
