@@ -1,20 +1,17 @@
 class WelcomeController < ApplicationController
   before_action :set_slides, only: [:index]
-  Path_slides_folder = "public/slides"
+  Path_slides_folder = 'app/assets/images/slides/*'
 
   def index
   end
 
   private
   def set_slides
-    @files = Dir.entries(Path_slides_folder).reject{ |entry| entry =~ /^\.{1,2}$/ }.sort
     @images = {}
-    @indicators = []
     index = 0
-    @files.each do |file|
-      @images[index] = '/slides/' + file
-      @indicators.push(index)
-      index = index + 1;
-    end
+    Dir.glob(Path_slides_folder).map do |path|
+      @images[index] =  "slides/#{ File.basename(path) }"
+      index += 1
+    end.reduce(&:+)
   end
 end
